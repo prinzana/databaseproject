@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/public/landingpage.css">
+    <link rel="stylesheet" href="/public/signup2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+   
+   <!-- Navigation Bar     /profileHome.html    -->
+   <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+        
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        <ul class="nav-links">
+             <!--  <li><a href="/public/home.html"> Home</a></li>-->
+            <li><a href="profileHome.html">🏠 Dashboard</a></li>
+            <li><a href="profiles.html"> 👤 Profiles</a></li>
+            <li><a href="settings.html"> ⚙️ Settings</a></li>
+            <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li>
+        </ul>
+    </nav>
+
+
+    <!-- Settings Section -->
+<section class="settings-container">
+    <!-- Back Button -->
+    <button class="back-btn" onclick="window.history.back();">Back</button>
+
+    <h2>Settings</h2>
+
+    <!-- Change Password Section -->
+    <div class="settings-card">
+        <h3>Change Password</h3>
+        <form id="change-password-form">
+            <div class="form-group">
+                <label for="current-password">Current Password:</label>
+                <input type="password" id="current-password" name="current-password" required>
+            </div>
+            <div class="form-group">
+                <label for="new-password">New Password:</label>
+                <input type="password" id="new-password" name="new-password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm New Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="save-settings-btn">Save Changes</button>
+        </form>
+    </div>
+
+    <!-- Logout Section -->
+    <div class="settings-card">
+        <h3>Account Management</h3>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</section>
+
+<!--NAVBAR STYLES//////////////////////////////////////-->
+<STYle>
+   
+
+
+
+
+
+/*signu2.css/////////////////////////////////////////////////////////////////////////////////////*/
+/* General Styles */
+
+</STYle>
+
+
+<Style>
+
+.settings-container {
+    padding: 20px;
+}
+
+.back-btn {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.settings-card {
+    background: #f8f9fa;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.save-settings-btn, .logout-btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-settings-btn:hover, .logout-btn:hover {
+    background-color: #0056b3;
+}
+
+</Style>
+
+
+<Script>
+
+function logout() {
+    // Implement your logout logic here
+    alert("You have been logged out.");
+    // Redirect to the login page or home page
+    window.location.href = "login.html"; // Change to your login page URL
+}
+
+</Script>
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const navLinks = document.querySelector('.nav-links');
+
+// Function to open the mobile menu
+function openMenu() {
+    navLinks.classList.add('show');
+    closeMenu.style.display = 'block'; // Show close button
+}
+
+// Function to close the mobile menu
+function closeMenuFunc() {
+    navLinks.classList.remove('show');
+    closeMenu.style.display = 'none'; // Hide close button
+}
+
+menuToggle.addEventListener('click', openMenu);
+closeMenu.addEventListener('click', closeMenuFunc);
+
+// Close the menu when clicking outside of it
+document.addEventListener('click', function(event) {
+    if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+        closeMenuFunc();
+    }
+});
+</script>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+ <!--
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address">
+                
+                <label for="state">State of Residence</label>
+                <input type="text" id="state" name="state" placeholder="Enter your state of residence">
+    
+                <label for="lga">LGA of Residence</label>
+                <input type="text" id="lga" name="lga" placeholder="Enter your LGA of residence">
+    
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" placeholder="Enter your occupation">
+    
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+    
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+    -->
+
+
+    

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="landingpage.css">
+    <link rel="stylesheet" href="signup2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+   
+   <!-- Navigation Bar -->
+   <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+        
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#">Database</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="index.html">Create Account</a></li>
+            <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li>
+        </ul>
+    </nav>
+
+   
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section card-tile">
+    <div class="hero-content">
+        <h1>Welcome to Amon Data Centre</h1>
+        <p>Your trusted data management solution.</p>
+        <a href="#about" class="btn-primary scroll-btn">Learn More About Us</a>
+    </div>
+</section>
+
+<!-- Info Section with Image Carousel -->
+<section id="info" class="info-section card-tile">
+    <h2>Why Join Amon Data Centre?</h2>
+    <p>Together, we work towards enacting our origin while preserving our heritage.</p> <br>
+</section>
+<section id="info" class="info-section card-tile">
+    <p> <div class="image-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="/Images/farm.jpg" alt="Data Centre Image 1">
+                <img src="/Images/fish.jpg" alt="Data Centre Image 2">
+                <img src="/Images/WhatsApp Image 2024-09-28 at 00.09.14_9f24679a.jpg" alt="Data Centre Image 3">
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- About Section -->
+<section id="about" class="about-section card-tile">
+    <h2>About Us</h2>
+    <p>At Amon Data Centre, we capture and preserve our present ancestry to build for the future.</p>
+    <a href="#home" class="btn-primary scroll-btn">Back to Top</a>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2024 Amon Data Centre. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+<style>
+
+/* Image Carousel Styles */
+.image-carousel {
+    position: relative;
+    width: 100%; /* Make the carousel fill the width of the card */
+    height: 200px; /* Default height for mobile view */
+    overflow: hidden; /* Ensure overflow is hidden */
+    border-radius: 8px; /* Optional: Add rounded corners for aesthetics */
+    margin-top: 20px; /* Add space above the carousel */
+}
+
+.carousel-container {
+    display: flex; /* Align images in a row */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+}
+
+.carousel-slide {
+    min-width: 100%; /* Ensure each slide takes up the full width of the carousel */
+}
+
+.carousel-slide img {
+    width: 100%; /* Make images responsive */
+    height: 100%; /* Set height to fill the carousel */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 8px; /* Optional: Add rounded corners to images */
+}
+
+/* Desktop-specific styles */
+@media (min-width: 768px) {
+    .image-carousel {
+        height: 400px; /* Set a standard height for desktop view */
+    }
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%); /* Center controls vertically */
+    z-index: 10; /* Ensure controls are above images */
+}
+
+.prev, .next {
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    color: #333;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%; /* Circular buttons */
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 255, 255, 1); /* Solid background on hover */
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const navLinks = document.querySelector('.nav-links');
+
+// Function to open the mobile menu
+function openMenu() {
+    navLinks.classList.add('show');
+    closeMenu.style.display = 'block'; // Show close button
+}
+
+// Function to close the mobile menu
+function closeMenuFunc() {
+    navLinks.classList.remove('show');
+    closeMenu.style.display = 'none'; // Hide close button
+}
+
+menuToggle.addEventListener('click', openMenu);
+closeMenu.addEventListener('click', closeMenuFunc);
+
+// Close the menu when clicking outside of it
+document.addEventListener('click', function(event) {
+    if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+        closeMenuFunc();
+    }
+});
+</script>
+
+<script>
+    // JavaScript for Image Carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide img');
+
+    function showSlide(index) {
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = index;
+        }
+        slides.forEach((slide, i) => {
+            slide.style.display = i === currentSlide ? 'block' : 'none';
+        });
+    }
+
+    function moveSlide(step) {
+        showSlide(currentSlide + step);
+    }
+
+    // Initialize carousel
+    showSlide(currentSlide);
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+ <!--
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address">
+                
+                <label for="state">State of Residence</label>
+                <input type="text" id="state" name="state" placeholder="Enter your state of residence">
+    
+                <label for="lga">LGA of Residence</label>
+                <input type="text" id="lga" name="lga" placeholder="Enter your LGA of residence">
+    
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" placeholder="Enter your occupation">
+    
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+    
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+    -->

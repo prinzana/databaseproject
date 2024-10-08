@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/public/landingpage.css">
+    <link rel="stylesheet" href="/public/signup2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+   
+   <!-- Navigation Bar     /profileHome.html    -->
+   <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+        
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        <ul class="nav-links">
+             <!--  <li><a href="/public/home.html"> Home</a></li>-->
+            <li><a href="profileHome.html">🏠 Dashboard</a></li>
+            <li><a href="profiles.html"> 👤 Profiles</a></li>
+            <li><a href="settings.html"> ⚙️ Settings</a></li>
+            <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li>
+        </ul>
+    </nav>
+
+   
+ <!-- Home Section in a Card -->
+ <section id="home" class="hero-section card-tile">
+    <div class="hero-content">
+        <h1>Welcome to Amon Data Centre</h1>
+        <p>Take a moment to update your profile to begin</p><br>
+    </div>
+</section>
+
+<section id="home" class="hero-section card-tile">
+    <div class="hero-content">
+        <h1>Three Easy Steps to Get Your Profile Up and Running</h1>
+        
+        <div class="step">
+            <span class="arrow">&#8594;</span>
+            <div class="step-details">
+                <strong>Step 1:</strong> Click on the profile icon or 
+                <a href="profiles.html " class="scroll-link">Click Here</a>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="arrow">&#8594;</span>
+            <div class="step-details">
+                <strong>Step 2:</strong> Fill in your details in the provided form.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="arrow">&#8594;</span>
+            <div class="step-details">
+                <strong>Step 3:</strong> Save your edits and voila - it's that simple!
+            </div>
+        </div>
+    </div>
+</section>
+<!--Navbar Styles//////////////////////////////////////////-->
+
+
+
+<style>/* Reset CSS */
+   
+    
+    /* Navigation Bar Styles ///////////////////////////////////////////////*/
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        position: fixed; /* Make the navbar sticky */
+        top: 0; /* Stick to the top */
+        width: 100%; /* Full width */
+        z-index: 1000; /* Ensure it sits above other content */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for better visibility */
+    }
+    
+    .navbar .logo {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar .logo img {
+        height: 40px;
+        margin-right: 10px;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0 15px;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+        color: #ffcc00;
+    }
+    
+    /* Card Tile Styles */
+    .card-tile {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden; /* Ensures that content doesn't overflow */
+    }
+    
+    .card-tile:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+    }
+    
+    /* Hero Section Card Specific Styles */
+    .hero-section {
+        border-radius: 8px;
+        text-align: center;
+        padding: 40px 20px;
+        margin: 20px /* Add margin for spacing */
+    }
+    
+    /* Info Section Card Specific Styles */
+    .info-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        margin-top: 20px;
+    }
+    
+    .info-text {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .info-text h2 {
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .info-text p {
+        color: #666;
+    }
+    
+    /* About Section Card Specific Styles */
+    .about-section {
+        padding: 40px 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .about-section h2 {
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .about-section p {
+        color: #666;
+        line-height: 1.6; /* Improved line height for readability */
+    }
+
+
+
+    /*SIGNUP2.css*/
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #000;
+}
+h1, h2, p{
+    color: #000;
+    padding-top: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1858d8;
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+/* Form Styles */
+.form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2, h3 {
+    text-align: center;
+}
+
+.form-container label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form-container input, .form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #1858d8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.form-container button:hover {
+    background-color: #947b7b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 80px;
+    background-color: #1858d8;
+    color: white;
+  
+}
+
+/* Existing styles... */
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 40%;
+        height: 100%;
+        background-color: #1858d8;
+        transition: left 0.3s ease-in-out;
+        padding-top: 60px;
+    }
+
+    .nav-links.show {
+        left: 0;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .close-menu {
+        font-size: 30px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .close-menu {
+        display: none; /* Hidden by default */
+    }
+
+    .close-menu.show {
+        display: block; /* Show when the menu is open */
+    }
+
+    .hero-section {
+        padding: 20px;
+    }
+
+    .form-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+
+    </style>
+
+
+
+<Style>
+.hero-section {
+padding: 20px;
+background-color: #fff4f0; /* Light background color */
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+text-align: left;
+}
+
+.step {
+display: flex;
+align-items: center;
+margin: 15px 0;
+flex-wrap: wrap; /* Allows wrapping for mobile devices */
+}
+
+.arrow {
+font-size: 24px; /* Arrow size */
+margin-right: 10px; /* Spacing between arrow and step text */
+color: #007bff; /* Arrow color */
+}
+
+.step-details {
+font-size: 18px; /* Step text size */
+flex: 1; /* Allows the text to grow and take available space */
+}
+
+.scroll-link {
+color: #007bff;
+text-decoration: underline;
+cursor: pointer;
+font-weight: bold; /* Makes the link stand out */
+}
+
+.scroll-link:hover {
+text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+.hero-content h1 {
+    font-size: 24px; /* Adjust heading size for smaller screens */
+}
+.step {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+}
+.arrow {
+    margin-bottom: 5px; /* Add space below the arrow for clarity */
+}
+}
+
+</Style>
+
+<footer>
+    <div class="container">
+        <p>© 2024 Amon Data Centre. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+<style>
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const navLinks = document.querySelector('.nav-links');
+
+// Function to open the mobile menu
+function openMenu() {
+    navLinks.classList.add('show');
+    closeMenu.style.display = 'block'; // Show close button
+}
+
+// Function to close the mobile menu
+function closeMenuFunc() {
+    navLinks.classList.remove('show');
+    closeMenu.style.display = 'none'; // Hide close button
+}
+
+menuToggle.addEventListener('click', openMenu);
+closeMenu.addEventListener('click', closeMenuFunc);
+
+// Close the menu when clicking outside of it
+document.addEventListener('click', function(event) {
+    if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+        closeMenuFunc();
+    }
+});
+</script>
+
+<script>
+    // JavaScript for Image Carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide img');
+
+    function showSlide(index) {
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = index;
+        }
+        slides.forEach((slide, i) => {
+            slide.style.display = i === currentSlide ? 'block' : 'none';
+        });
+    }
+
+    function moveSlide(step) {
+        showSlide(currentSlide + step);
+    }
+
+    // Initialize carousel
+    showSlide(currentSlide);
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+ <!--
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address">
+                
+                <label for="state">State of Residence</label>
+                <input type="text" id="state" name="state" placeholder="Enter your state of residence">
+    
+                <label for="lga">LGA of Residence</label>
+                <input type="text" id="lga" name="lga" placeholder="Enter your LGA of residence">
+    
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" placeholder="Enter your occupation">
+    
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+    
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+    -->
+
+
+    

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/public/landingpage.css">
+    <link rel="stylesheet" href="/public/signup2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+   
+   <!-- Navigation Bar     /profileHome.html    -->
+   <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+        
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        <ul class="nav-links">
+             <!--  <li><a href="/public/home.html"> Home</a></li>-->
+            <li><a href="profileHome.html">🏠 Dashboard</a></li>
+            <li><a href="profiles.html"> 👤 Profiles</a></li>
+            <li><a href="settings.html"> ⚙️ Settings</a></li>
+            <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li>
+        </ul>
+    </nav>
+
+    <body>
+
+      
+        <body>
+           
+            <!-- Container for Profile -->
+            <div class="container">
+                <!-- Profile Section -->
+                <section class="profile-container">
+                    <!-- Profile Card -->
+                    <div class="card profile-card">
+                        <div class="profile-pic-container">
+                            <img src="Images/profileee.jpg" alt="Profile Avatar" class="profile-pic" id="profile-pic">
+                        </div>
+                        <div class="name-profile-container"><p>John Doe</p></div>
+                        <!-- Edit Profile Button -->
+                        <button class="edit-profile-btn" id="openModalBtn">Edit Profile</button>
+                    </div>
+        
+                    <!-- Profile Details -->
+                    <div class="card profile-details-card">
+                        <h2>Profile Details</h2>
+                        <div class="tile"><p><strong>Name:</strong> John Doe</p></div>
+                        <div class="tile"><p><strong>Sex:</strong> Male</p></div>
+                        <div class="tile"><p><strong>Occupation:</strong> Farmer</p></div>
+                        <div class="tile"><p><strong>Marital Status:</strong> Single</p></div>
+                        <div class="tile"><p><strong>Number of Children:</strong> 1</p></div>
+                        <div class="tile"><p><strong>Address:</strong> 123 Main St</p></div>
+                        <div class="tile"><p><strong>State of Residence:</strong> Cross River</p></div>
+                        <div class="tile"><p><strong>LGA Residence:</strong> Calabar South</p></div>
+                        <div class="tile"><p><strong>Email:</strong> john@example.com</p></div>
+                        <div class="tile"><p><strong>Date of Birth:</strong> 23/12/1900</p></div>
+                    </div>
+        
+                    <!-- Lineage Details -->
+                    <div class="card lineage-card">
+                        <h2>Lineage Details</h2>
+                        <div class="tile"><p><strong>Community:</strong> Example Community</p></div>
+                        <div class="tile"><p><strong>Clan:</strong> Example Clan</p></div>
+                        <div class="tile"><p><strong>Family Name:</strong> Doe</p></div>
+                    </div>
+                </section>
+        
+                <!-- Edit Profile Modal -->
+                <div class="modal" id="editModal">
+                    <div class="modal-content">
+                        <span class="close-btn" id="closeModalBtn">&times;</span>
+                        <h2>Edit Profile</h2>
+                        <form id="profile-form">
+                            <!-- Profile Picture Upload Section -->
+                            <div class="form-group">
+                                <label for="profile-pic-upload">Upload Profile Picture:</label>
+                                <input type="file" id="profile-pic-upload" name="profile-pic-upload" accept="image/*">
+                            </div>
+        
+                            <!-- Profile Fields -->
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" value="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="sex">Sex:</label>
+                                <input type="text" id="sex" name="sex" value="Male">
+                            </div>
+                            <div class="form-group">
+                                <label for="occupation">Occupation:</label>
+                                <input type="text" id="occupation" name="occupation" value="Farmer">
+                            </div>
+                            <div class="form-group">
+                                <label for="marital-status">Marital Status:</label>
+                                <input type="text" id="marital-status" name="marital-status" value="Single">
+                            </div>
+                            <div class="form-group">
+                                <label for="children">Number of Children:</label>
+                                <input type="number" id="children" name="children" value="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <input type="text" id="address" name="address" value="123 Main St">
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State of Residence:</label>
+                                <input type="text" id="state" name="state" value="Cross River">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" value="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth:</label>
+                                <input type="text" id="dob-input" name="dob" value="23/12/1900">
+                                <div class="toggle-container">
+                                    <input type="checkbox" id="toggle-dob-visibility" name="toggle-dob-visibility">
+                                    <label for="toggle-dob-visibility">Make Date of Birth Public</label>
+                                </div>
+                            </div>
+        
+                            <button type="submit" class="save-profile-btn">Save Changes</button>
+                        </form>
+                        <div id="successMessage" class="success-message" style="display:none;">
+                            Profile updated successfully!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <script src="script.js"></script>
+        </body>
+        </html>
+        
+        <script>
+            
+        </script>
+        
+    
+<!----------------------------------- #end of form fill ------------------------------------------------------------------------>
+
+    
+<!------------------------------------------START OF PROFILE CSSS DESIGN---------------------------------------------------------------------------------------------------------------->
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-container {
+    margin-top: 60px; /* Space added between the navbar and profile */
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: -20px;
+}
+
+.name-profile-container {
+    font-weight: 900; /* Very bold */
+    color: rgb(7, 91, 247); /* Blue color */
+    text-align: center; /* Center-align text */
+    font-size: 30px; /* You can adjust this size as needed */
+    margin-top: 20px; /* Optional: Add some spacing above the name */
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px; /* Additional space below profile picture */
+}
+
+.edit-profile-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+    background-color: #45a049;
+}
+
+.tile {
+    margin: 10px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.toggle-container label {
+    margin-left: 10px;
+}
+
+.success-message {
+    color: green;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+</STYle>
+
+
+
+
+<!--start of ----------------------------------Modal and profile script------------------------------------------------------------------------------------------------------>
+
+<SCRipt>
+  // Get modal and buttons
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const editModal = document.getElementById('editModal');
+
+// Open Modal
+openModalBtn.addEventListener('click', () => {
+    editModal.style.display = 'flex';
+});
+
+// Close Modal
+closeModalBtn.addEventListener('click', () => {
+    editModal.style.display = 'none';
+});
+
+// Close Modal by clicking outside
+window.addEventListener('click', (event) => {
+    if (event.target === editModal) {
+        editModal.style.display = 'none';
+    }
+});
+
+// Submit Form and Update Profile
+const profileForm = document.getElementById('profile-form');
+profileForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Simulate profile update success
+    document.getElementById('successMessage').style.display = 'block';
+    
+    // Close the modal after 2 seconds
+    setTimeout(() => {
+        editModal.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'none';
+    }, 2000);
+});
+
+// Preview Uploaded Profile Picture
+const profilePicUpload = document.getElementById('profile-pic-upload');
+const profilePic = document.getElementById('profile-pic');
+
+profilePicUpload.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            profilePic.src = e.target.result; // Update profile picture on the main page
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+
+
+</SCRipt>
+
+<!-------------------------------------------end---------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+    /*  //////////////////////////////////////////////////////Navbar Styles failsafestyles for navbar ////////////////////////////////////////////////////////////////////////////////// */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #1858d8;
+        color: white;
+    }
+    
+    .navbar .logo {
+        font-size: 1.5em;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .nav-links li {
+        margin-left: 20px;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    /* Menu Toggle Button */
+    .menu-toggle {
+        font-size: 24px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    
+
+    /* Existing styles... */
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 40%;
+            height: 100%;
+            background-color: #1858d8;
+            transition: left 0.3s ease-in-out;
+            padding-top: 60px;
+        }
+    
+        .nav-links.show {
+            left: 0;
+            display: flex;
+        }
+    
+        .nav-links li {
+            margin: 20px 0;
+            text-align: center;
+        }
+    
+        .menu-toggle {
+            display: block;
+        }
+    
+        .close-menu {
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+    
+        .close-menu {
+            display: none; /* Hidden by default */
+        }
+    
+        .close-menu.show {
+            display: block; /* Show when the menu is open */
+        }
+    
+        .hero-section {
+            padding: 20px;
+        }
+    
+        .form-container {
+            width: 90%;
+            margin: 20px auto;
+        }
+    }
+    
+        </style>
+    
+    
+
+    
+    <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    // Function to open the mobile menu
+    function openMenu() {
+        navLinks.classList.add('show');
+        closeMenu.style.display = 'block'; // Show close button
+    }
+    
+    // Function to close the mobile menu
+    function closeMenuFunc() {
+        navLinks.classList.remove('show');
+        closeMenu.style.display = 'none'; // Hide close button
+    }
+    
+    menuToggle.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunc);
+    
+    // Close the menu when clicking outside of it
+    document.addEventListener('click', function(event) {
+        if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+            closeMenuFunc();
+        }
+    });
+    //////////////////////////////////////end of toggle/////////////////////////////////////////////////////////////////////////////
+     </script>
+    
+
+
+
+
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<!-----------------------------------------------------end of form toggle ---------------------------------------------------------------------------------------------------------------->
+
+
+<!-- ---------------------------------------------------Modal script region-------------------------------------------------------------->
+
+<!--------------------------------End of modal script regios----------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Navbar Styles//////////////////////////////////////////-->

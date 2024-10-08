@@ -1,0 +1,165 @@
+/* General Styles */
+
+
+nav.navbar {
+    background-color: #004aad;
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.hero-section p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Form Container - Centered and Wider */
+.form-container {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 600px; /* Increased width */
+    margin: 0 auto; /* Center the form */
+}
+
+.form-container h2 {
+    font-size: 1.8rem;
+    color: #004aad;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Larger spacing between form fields */
+}
+
+/* Form Labels */
+form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.required {
+    color: red;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+    padding: 12px; /* Increased padding for larger input fields */
+    font-size: 1.1rem; /* Slightly larger font */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Make the input fields full-width */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #004aad;
+    outline: none;
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: none;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background-color: #004aad;
+    color: white;
+    padding: 12px; /* Increased padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Larger font size for the button */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make the button full-width */
+}
+
+button[type="submit"]:hover {
+    background-color: #00398c;
+}
+
+/* Success Message */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .form-container {
+        width: 90%; /* Make the form smaller on small screens */
+    }
+}
+
+@media (max-width: 500px) {
+    .form-container {
+        width: 100%; /* Make the form full-width on mobile */
+    }
+
+    nav.navbar {
+        flex-direction: column;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+}

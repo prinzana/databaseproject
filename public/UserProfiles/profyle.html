@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/public/landingpage.css">
+    <link rel="stylesheet" href="/public/signup2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+   
+   <!-- Navigation Bar     /profileHome.html    -->
+   <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+        
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        <ul class="nav-links">
+             <!--  <li><a href="/public/home.html"> Home</a></li>-->
+            <li><a href="profileHome.html">🏠 Dashboard</a></li>
+            <li><a href="profiles.html"> 👤 Profiles</a></li>
+            <li><a href="settings.html"> ⚙️ Settings</a></li>
+            <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li>
+        </ul>
+    </nav>
+
+    <body>
+
+      
+        <body>
+           
+            <!-- Container for Profile -->
+            <div class="container">
+                <!-- Profile Section -->
+                <section class="profile-container">
+                    <!-- Profile Card -->
+                    <div class="card profile-card">
+                        <div class="profile-pic-container">
+                            <img src="" alt="Profile Avatar" class="profile-pic" id="profile-pic">
+                        </div>
+                        <div class="name-profile-container"><p>John Doe</p></div>
+                        <!-- Edit Profile Button -->
+                        <button class="edit-profile-btn" id="openModalBtn">Edit Profile</button>
+                    </div>
+        
+                    <!-- Profile Details -->
+                    <div class="card profile-details-card">
+                        <h2>Profile Details</h2>
+                        <div class="tile"><p><strong>Name:</strong> John Doe</p></div>
+                        <div class="tile"><p><strong>Sex:</strong> Male</p></div>
+                        <div class="tile"><p><strong>Occupation:</strong> Farmer</p></div>
+                        <div class="tile"><p><strong>Marital Status:</strong> Single</p></div>
+                        <div class="tile"><p><strong>Number of Children:</strong> 1</p></div>
+                        <div class="tile"><p><strong>Address:</strong> 123 Main St</p></div>
+                        <div class="tile"><p><strong>State of Residence:</strong> Cross River</p></div>
+                        <div class="tile"><p><strong>LGA Residence:</strong> Calabar South</p></div>
+                        <div class="tile"><p><strong>Email:</strong> john@example.com</p></div>
+                        <div class="tile"><p><strong>Date of Birth:</strong> 23/12/1900</p></div>
+                    </div>
+        
+                    <!-- Lineage Details -->
+                    <div class="card lineage-card">
+                        <h2>Lineage Details</h2>
+                        <div class="tile"><p><strong>Community:</strong> Example Community</p></div>
+                        <div class="tile"><p><strong>Clan:</strong> Example Clan</p></div>
+                        <div class="tile"><p><strong>Family Name:</strong> Doe</p></div>
+                    </div>
+                </section>
+        
+<!-- Edit Profile Modal -->
+<div class="modal" id="editModal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="profile-form" method="POST">
+            <!-- Profile Picture Upload Section -->
+            <div class="form-group">
+                <label for="profile-pic-upload">Upload Profile Picture:</label>
+                <input type="file" id="profile-pic-upload" name="profile_picture" accept="image/*">
+            </div>
+
+            <!-- Profile Fields -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <input type="text" id="sex" name="sex" value="Male" required>
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation" value="Farmer" required>
+            </div>
+            <div class="form-group">
+                <label for="marital-status">Marital Status:</label>
+                <input type="text" id="marital-status" name="marital_status" value="Single" required>
+            </div>
+            <div class="form-group">
+                <label for="children">Number of Children:</label>
+                <input type="number" id="children" name="number_of_children" value="1" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="123 Main St" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State of Residence:</label>
+                <input type="text" id="state" name="state_of_residence" value="Cross River" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="john@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob-input" name="date_of_birth" value="1900-12-23" required> <!-- Changed to date input -->
+                <div class="toggle-container">
+                    <input type="checkbox" id="toggle-dob-visibility" name="is_dob_public">
+                    <label for="toggle-dob-visibility">Make Date of Birth Public</label>
+                </div>
+            </div>
+
+            <button type="submit" class="save-profile-btn">Save Changes</button>
+        </form>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message" style="display:none;">
+            Profile updated successfully!
+        </div>
+    </div>
+</div>
+
+        </html>
+        
+    
+<!----------------------------------- #end of form fill ------------------------------------------------------------------------>
+
+    
+<!------------------------------------------START OF PROFILE CSSS DESIGN---------------------------------------------------------------------------------------------------------------->
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-container {
+    margin-top: 60px; /* Space added between the navbar and profile */
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: -20px;
+}
+
+.name-profile-container {
+    font-weight: 900; /* Very bold */
+    color: rgb(7, 91, 247); /* Blue color */
+    text-align: center; /* Center-align text */
+    font-size: 30px; /* You can adjust this size as needed */
+    margin-top: 20px; /* Optional: Add some spacing above the name */
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px; /* Additional space below profile picture */
+}
+
+.edit-profile-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+    background-color: #45a049;
+}
+
+.tile {
+    margin: 10px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.toggle-container label {
+    margin-left: 10px;
+}
+
+.success-message {
+    color: green;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+</STYle>
+
+
+
+
+<!--start of ----------------------------------Modal and profile script------------------------------------------------------------------------------------------------------>
+
+<SCRipt>
+  // Get modal and buttons
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const editModal = document.getElementById('editModal');
+
+// Open Modal
+openModalBtn.addEventListener('click', () => {
+    editModal.style.display = 'flex';
+});
+
+// Close Modal
+closeModalBtn.addEventListener('click', () => {
+    editModal.style.display = 'none';
+});
+
+// Close Modal by clicking outside
+window.addEventListener('click', (event) => {
+    if (event.target === editModal) {
+        editModal.style.display = 'none';
+    }
+});
+
+// Submit Form and Update Profile
+const profileForm = document.getElementById('profile-form');
+profileForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Simulate profile update success
+    document.getElementById('successMessage').style.display = 'block';
+    
+    // Close the modal after 2 seconds
+    setTimeout(() => {
+        editModal.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'none';
+    }, 2000);
+});
+
+// Preview Uploaded Profile Picture
+const profilePicUpload = document.getElementById('profile-pic-upload');
+const profilePic = document.getElementById('profile-pic');
+
+profilePicUpload.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            profilePic.src = e.target.result; // Update profile picture on the main page
+        }
+        reader.readAsDataURL(file);
+    }
+});
+/*
+//////////handles modal edit///////
+document.addEventListener("DOMContentLoaded", function () {
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const editModal = document.getElementById("editModal");
+    const profileForm = document.getElementById("profile-form");
+    const successMessage = document.getElementById("successMessage");
+
+    // Open the modal
+    openModalBtn.addEventListener("click", function () {
+        editModal.style.display = "block";
+    });
+
+    // Close the modal
+    closeModalBtn.addEventListener("click", closeModal);
+    window.addEventListener("click", function (event) {
+        if (event.target === editModal) {
+            closeModal();
+        }
+    });
+
+    //////////handles form submission///////
+    profileForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const formData = new FormData(profileForm); // Create a FormData object
+
+        // Send a POST request to the backend API
+        fetch('https://localhost:5000/api/users/update-profile', { // Replace with your API URL
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Handle success response
+            successMessage.style.display = "block"; // Show success message
+            setTimeout(() => {
+                closeModal(); // Close the modal after a few seconds
+                successMessage.style.display = "none"; // Hide success message
+            }, 2000);
+            console.log('Profile updated successfully:', data);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    });
+
+    // Function to close the modal
+    function closeModal() {
+        editModal.style.display = "none";
+    }
+*/
+document.getElementById('profile-form').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(this); // Create FormData object from the form
+
+    // Validate form inputs
+    const fullname = formData.get('name'); // Ensure you're getting the correct field name
+    if (!fullname) {
+        alert('Full name is required.');
+        return; // Prevent form submission
+    }
+
+    // Fetch profile picture if uploaded
+    const profilePicUpload = document.getElementById('profile-pic-upload').files[0];
+    if (profilePicUpload) {
+        formData.append('profile_picture', profilePicUpload); // Append file if exists
+    }
+
+    try {
+        // Sending data to your backend API
+        const response = await fetch('/api/profile-update', { // Changed the URL to match your route
+            method: 'PUT', // Change method to PUT
+            body: formData,
+        });
+
+        if (response.ok) {
+            const updatedProfile = await response.json(); // Assuming your API returns the updated profile
+            updateProfileDetails(updatedProfile); // Update the profile details displayed on the page
+            document.getElementById('successMessage').style.display = 'block'; // Show success message
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none'; // Hide message after a while
+            }, 3000);
+
+            // Optionally clear form fields here if needed
+            this.reset(); // Resets the form fields
+        } else {
+            throw new Error('Failed to update profile');
+        }
+    } catch (error) {
+        console.error(error);
+        alert('There was an error updating your profile. Please try again.'); // Show error message
+    }
+});
+
+// Function to update profile details on the page
+function updateProfileDetails(profile) {
+    document.querySelector('.name-profile-container p').textContent = profile.name;
+    document.querySelector('.profile-pic').src = profile.profile_picture; // Update profile picture
+    document.querySelector('.profile-details-card .tile:nth-child(1) p').innerHTML = `<strong>Name:</strong> ${profile.name}`;
+    document.querySelector('.profile-details-card .tile:nth-child(2) p').innerHTML = `<strong>Sex:</strong> ${profile.sex}`;
+    document.querySelector('.profile-details-card .tile:nth-child(3) p').innerHTML = `<strong>Occupation:</strong> ${profile.occupation}`;
+    document.querySelector('.profile-details-card .tile:nth-child(4) p').innerHTML = `<strong>Marital Status:</strong> ${profile.marital_status}`;
+    document.querySelector('.profile-details-card .tile:nth-child(5) p').innerHTML = `<strong>Number of Children:</strong> ${profile.number_of_children}`;
+    document.querySelector('.profile-details-card .tile:nth-child(6) p').innerHTML = `<strong>Address:</strong> ${profile.address}`;
+    document.querySelector('.profile-details-card .tile:nth-child(7) p').innerHTML = `<strong>State of Residence:</strong> ${profile.state_of_residence}`;
+    document.querySelector('.profile-details-card .tile:nth-child(8) p').innerHTML = `<strong>LGA Residence:</strong> ${profile.lga_residence}`;
+    document.querySelector('.profile-details-card .tile:nth-child(9) p').innerHTML = `<strong>Email:</strong> ${profile.email}`;
+    document.querySelector('.profile-details-card .tile:nth-child(10) p').innerHTML = `<strong>Date of Birth:</strong> ${profile.date_of_birth}`;
+}
+
+</script>
+
+<!-------------------------------------------end---------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+    /*  //////////////////////////////////////////////////////Navbar Styles failsafestyles for navbar ////////////////////////////////////////////////////////////////////////////////// */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #1858d8;
+        color: white;
+    }
+    
+    .navbar .logo {
+        font-size: 1.5em;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .nav-links li {
+        margin-left: 20px;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    /* Menu Toggle Button */
+    .menu-toggle {
+        font-size: 24px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    
+
+    /* Existing styles... */
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 40%;
+            height: 100%;
+            background-color: #1858d8;
+            transition: left 0.3s ease-in-out;
+            padding-top: 60px;
+        }
+    
+        .nav-links.show {
+            left: 0;
+            display: flex;
+        }
+    
+        .nav-links li {
+            margin: 20px 0;
+            text-align: center;
+        }
+    
+        .menu-toggle {
+            display: block;
+        }
+    
+        .close-menu {
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+    
+        .close-menu {
+            display: none; /* Hidden by default */
+        }
+    
+        .close-menu.show {
+            display: block; /* Show when the menu is open */
+        }
+    
+        .hero-section {
+            padding: 20px;
+        }
+    
+        .form-container {
+            width: 90%;
+            margin: 20px auto;
+        }
+    }
+    
+        </style>
+    
+    
+
+    
+    <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    // Function to open the mobile menu
+    function openMenu() {
+        navLinks.classList.add('show');
+        closeMenu.style.display = 'block'; // Show close button
+    }
+    
+    // Function to close the mobile menu
+    function closeMenuFunc() {
+        navLinks.classList.remove('show');
+        closeMenu.style.display = 'none'; // Hide close button
+    }
+    
+    menuToggle.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunc);
+    
+    // Close the menu when clicking outside of it
+    document.addEventListener('click', function(event) {
+        if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+            closeMenuFunc();
+        }
+    });
+    //////////////////////////////////////end of toggle/////////////////////////////////////////////////////////////////////////////
+     </script>
+    
+
+
+
+
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<!-----------------------------------------------------end of form toggle ---------------------------------------------------------------------------------------------------------------->
+
+
+<!-- ---------------------------------------------------Modal script region-------------------------------------------------------------->
+
+<!--------------------------------End of modal script regios----------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Navbar Styles//////////////////////////////////////////-->
+

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/public/landingpage.css">
+    <link rel="stylesheet" href="/public/signup2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+   
+   <!-- Navigation Bar     /profileHome.html    -->
+   <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+        
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        <ul class="nav-links">
+             <!--  <li><a href="/public/home.html"> Home</a></li>-->
+            <li><a href="profileHome.html">🏠 Dashboard</a></li>
+            <li><a href="profiles.html"> 👤 Profiles</a></li>
+            <li><a href="settings.html"> ⚙️ Settings</a></li>
+            <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li>
+        </ul>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<script>
+    // Function to toggle the visibility of the edit profile form
+function toggleEditForm() {
+    const editForm = document.getElementById('edit-form');
+    editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+}
+
+// Function to handle the profile picture upload
+function handleProfilePicUpload(event) {
+    const file = event.target.files[0];
+    const profilePic = document.getElementById('profile-pic');
+
+    // Check if a file was selected
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            profilePic.src = e.target.result; // Update the profile picture preview
+        };
+        reader.readAsDataURL(file); // Read the uploaded file as a data URL
+    }
+}
+
+// Function to handle the profile form submission
+function handleProfileFormSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Retrieve form values
+    const name = document.getElementById('name').value;
+    const sex = document.getElementById('sex').value;
+    const address = document.getElementById('address').value;
+    const state = document.getElementById('state').value;
+    const lga = document.getElementById('lga').value;
+    const occupation = document.getElementById('occupation').value;
+    const maritalStatus = document.getElementById('marital-status').value;
+    const children = document.getElementById('children').value;
+    const email = document.getElementById('email').value;
+    const dob = document.getElementById('dob-input').value;
+    const dobVisibility = document.getElementById('toggle-dob-visibility').checked;
+
+    // Basic validation (you can add more complex validation as needed)
+    if (!name || !email) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+    // Log the updated details (you can replace this with actual update logic, such as an API call)
+    console.log({
+        name,
+        sex,
+        address,
+        state,
+        lga,
+        occupation,
+        maritalStatus,
+        children,
+        email,
+        dob,
+        dobVisibility
+    });
+
+    // Optionally hide the form after submission
+    toggleEditForm();
+}
+
+// Event listeners
+document.getElementById('profile-pic-upload').addEventListener('change', handleProfilePicUpload);
+document.getElementById('profile-form').addEventListener('submit', handleProfileFormSubmit);
+
+</script>
+
+
+
+
+
+<!--start of navcar styles-->
+<Style>
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1858d8;
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+
+
+
+/* Existing styles... */
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 40%;
+        height: 100%;
+        background-color: #1858d8;
+        transition: left 0.3s ease-in-out;
+        padding-top: 60px;
+    }
+
+    .nav-links.show {
+        left: 0;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .close-menu {
+        font-size: 30px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .close-menu {
+        display: none; /* Hidden by default */
+    }
+
+    .close-menu.show {
+        display: block; /* Show when the menu is open */
+    }
+
+    .hero-section {
+        padding: 20px;
+    }
+
+    .form-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+}
+
+</Style>
+
+<!--end Navbar Styles//////////////////////////////////////////-------------------------------------------------------------------------->
+
+
+
+
+   
+  
+<footer>
+    <div class="container">
+        <p>© 2024 Amon Data Centre. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<!---------------------------------------------Mobile Menu toggle script--------------------------------------------------------->
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const navLinks = document.querySelector('.nav-links');
+
+// Function to open the mobile menu
+function openMenu() {
+    navLinks.classList.add('show');
+    closeMenu.style.display = 'block'; // Show close button
+}
+
+// Function to close the mobile menu
+function closeMenuFunc() {
+    navLinks.classList.remove('show');
+    closeMenu.style.display = 'none'; // Hide close button
+}
+
+menuToggle.addEventListener('click', openMenu);
+closeMenu.addEventListener('click', closeMenuFunc);
+
+// Close the menu when clicking outside of it
+document.addEventListener('click', function(event) {
+    if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+        closeMenuFunc();
+    }
+});
+</script>
+<!---------------------------------------------end Mobile Menu toggle script--------------------------------------------------------->
+
+
+
+</body>
+</html>
+
+
+
+

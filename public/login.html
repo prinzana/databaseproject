@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="landingpage.css">
+    <link rel="stylesheet" href="signup2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="index.html">Sign Up</a></li>
+            <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li> <!-- Close button -->
+        </ul>
+    </nav>
+
+    <div class="signin-container">
+        <div class="signin-form">
+            <h1>Sign In</h1>
+            <form id="login-form" action="/api/users/login" method="POST"> <!-- Added action and method -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+    
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+            <div id="success-message" style="display:none; color: green;"></div>
+            <div id="error-message" style="display:none; color: red;"></div>
+            <p class="forgot-password-link"><a href="/forgotpassword.html">Forgot Password?</a></p>
+            <p class="signup-link">Don't have an account? <a href="index.html">Sign Up</a></p>
+        </div>
+    </div>
+    
+</body>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Amon Data Centre. All Rights Reserved.</p>
+        </div>
+    </footer>
+<style>
+
+
+
+    /* Reset some default styles */
+
+/* Center the sign-in container */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full height of the viewport */
+    background-color: #f4f4f4; /* Light background color */
+    padding-top: 50px;
+}
+
+/* Style for the sign-in form */
+.signin-form {
+    background-color: white; /* White background for the form */
+    padding: 30px; /* Padding for inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 400px; /* Max width for the card */
+    width: 100%; /* Full width on mobile */
+    text-align: center; /* Center text */
+}
+
+/* Headings */
+.signin-form h1 {
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Input fields */
+.signin-form input[type="email"],
+.signin-form input[type="password"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside input */
+    margin: 10px 0; /* Space between inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff; /* Primary color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px; /* Padding */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Button hover effect */
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Links styles */
+.forgot-password-link,
+.signup-link {
+    margin-top: 10px; /* Space above links */
+}
+
+a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+    .signin-form {
+        padding: 20px; /* Reduced padding for smaller screens */
+    }
+}
+</style>
+
+
+<script src="loginroute.js"></script>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Script to Toggle Mobile Menu -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Function to open the mobile menu
+        function openMenu() {
+            navLinks.classList.add('show');
+            closeMenu.style.display = 'block'; // Show close button
+        }
+
+        // Function to close the mobile menu
+        function closeMenuFunc() {
+            navLinks.classList.remove('show');
+            closeMenu.style.display = 'none'; // Hide close button
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+
+        // Close the menu when clicking outside of it
+        document.addEventListener('click', function(event) {
+            if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+                closeMenuFunc();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+ <!--
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address">
+                
+                <label for="state">State of Residence</label>
+                <input type="text" id="state" name="state" placeholder="Enter your state of residence">
+    
+                <label for="lga">LGA of Residence</label>
+                <input type="text" id="lga" name="lga" placeholder="Enter your LGA of residence">
+    
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" placeholder="Enter your occupation">
+    
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+    
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+    -->

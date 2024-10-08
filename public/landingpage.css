@@ -1,0 +1,120 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    position: fixed; /* Make the navbar sticky */
+    top: 0; /* Stick to the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it sits above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for better visibility */
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Card Tile Styles */
+.card-tile {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden; /* Ensures that content doesn't overflow */
+}
+
+.card-tile:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+/* Hero Section Card Specific Styles */
+.hero-section {
+    border-radius: 8px;
+    text-align: center;
+    padding: 40px 20px;
+    margin: 20px /* Add margin for spacing */
+}
+
+/* Info Section Card Specific Styles */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+.info-text {
+    padding: 20px;
+    text-align: center;
+}
+
+.info-text h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.info-text p {
+    color: #666;
+}
+
+/* About Section Card Specific Styles */
+.about-section {
+    padding: 40px 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    color: #666;
+    line-height: 1.6; /* Improved line height for readability */
+}
