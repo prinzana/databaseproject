@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/public/signup2.css">
+    <link rel="stylesheet" href="signup2.css">
+    <link rel="stylesheet" href="signup.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<!-- Pop-up Notification Container -->
+<!--<div id="popup-message" class="popup-message"></div>--->
+
+<body>
+    <!-- Navigation Bar -->
+     <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+         <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+         <ul class="nav-links">
+             <li><a href="Home.html">Home</a></li>
+             <li><a href="login.html">Login</a></li>
+             <li><a href="index.html">Create Account</a></li>
+             <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li> <!-- Close button -->
+         </ul>
+     </nav>
+ <!-- Signup Form Section -->
+<div class="form-container" style="position: relative; padding-top: 80px;"> <!-- Added padding-top for spacing -->
+    <!-- Success Message Placeholder -->
+    <div id="success-message" class="success-message">Way to go!</div>
+    
+    <!-- Error Message Placeholder -->
+    <div id="error-message" class="error-message">An error occurred. Please try again.</div>
+
+    <!-- Signup Form -->
+    <h2>Signup Form</h2><br>
+    <form id="signup-form" action="/api/users/register" method="POST" enctype="multipart/form-data"> <!-- Added enctype for file uploads -->
+        <!-- Personal Info Section -->
+        <h3>Personal Info</h3>
+        <label for="fullname">Full Name <span class="required">*</span></label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+        <div id="fullname-error" class="error-message"></div>
+
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <div id="email-error" class="error-message"></div>
+
+        <label for="password">Password <span class="required">*</span></label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <div id="password-error" class="error-message"></div>
+
+        <!-- Lineage Info Section -->
+        <h3>Lineage Info</h3>
+        <label for="community">Name of Community <span class="required">*</span></label>
+        <select id="community" name="community" required>
+            <option value="">--Select Community--</option>
+            <option value="Community1">Community 1</option>
+            <option value="Community2">Community 2</option>
+        </select>
+        <div id="community-error" class="error-message"></div>
+
+        <label for="clan">Name of Clan <span class="required">*</span></label>
+        <select id="clan" name="clan" required>
+            <option value="">--Select Clan--</option>
+            <option value="Clan1">Clan 1</option>
+            <option value="Clan2">Clan 2</option>
+        </select>
+        <div id="clan-error" class="error-message"></div>
+
+        <label for="familyname">Family Name <span class="required">*</span></label>
+        <input type="text" id="familyname" name="familyname" placeholder="Enter your family name" required>
+        <div id="familyname-error" class="error-message"></div>
+
+        <!-- New Fields for Sex and Profile Picture -->
+        <label for="sex">Sex <span class="required">*</span></label>
+        <select id="sex" name="sex" required>
+            <option value="">--Select Sex--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <div id="sex-error" class="error-message"></div>
+
+        <label for="profile-picture">Profile Picture <span class="required">*</span></label>
+        <input type="file" id="profile-picture" name="profile-picture" accept="image/*" required>
+        <div id="profile-picture-error" class="error-message"></div>
+
+        <!-- Submit Button -->
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+
+
+
+
+
+
+    <script src="/public/script.js"></script>
+    <script src=""></script>
+
+   
+
+</body>
+</html>
+
+<style>/* For both success and error messages */
+.success-message, .error-message {
+    position: relative; /* Adjust relative to its container (like form card) */
+    top: 20px; /* Appears slightly above the form */
+    left: 50%; /* Center align */
+    transform: translateX(-50%);
+    width: 90%; /* Ensure it takes most of the form's width */
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center; /* Center the text inside the message box */
+    display: none; /* Initially hidden */
+    z-index: 1000; /* Appear above other elements */
+}
+
+.success-message {
+    background-color: #28a745; /* Green background for success */
+    color: white; /* White text for readability */
+    border: 1px solid #28a745;
+}
+
+.error-message {
+    background-color: #dc3545; /* Red background for error */
+    color: white; /* White text for readability */
+    border: 1px solid #dc3545;
+}
+
+    </style>
+
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Amon Data Centre. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+<!---------------------------------------TOGGLE SECTION----------------------------------------------------------------------->
+    <!-- Script to Toggle Mobile Menu -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Function to open the mobile menu
+        function openMenu() {
+            navLinks.classList.add('show');
+            closeMenu.style.display = 'block'; // Show close button
+        }
+
+        // Function to close the mobile menu
+        function closeMenuFunc() {
+            navLinks.classList.remove('show');
+            closeMenu.style.display = 'none'; // Hide close button
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+
+        // Close the menu when clicking outside of it
+        document.addEventListener('click', function(event) {
+            if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+                closeMenuFunc();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+ 
+
+

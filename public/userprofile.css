@@ -1,0 +1,300 @@
+/* Basic Styles for Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-links.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #f8f9fa;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Modal Styles */
+.container {
+max-width: 600px;
+margin: 20px auto;
+padding: 20px;
+border: 1px solid #0260e3;
+border-radius: 8px;
+background-color: #f9f9f9;
+}
+
+ 
+/* General styles for the container *-----------------------/
+
+
+/* Profile card styles */
+.card {
+padding: 15px;
+margin-bottom: 20px;
+border: 1px solid #ddd;
+border-radius: 5px;
+background-color: #fff;
+}
+
+/* Title styles */
+.card h2 {
+margin-bottom: 15px;
+}
+
+/* Tile styles for profile details */
+.tile {
+margin-bottom: 10px;
+}
+
+/* Form styles */
+form {
+display: flex;
+flex-direction: column;
+}
+
+/* Form group styles */
+.form-group {
+margin-bottom: 15px;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="file"] {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+/* Button styles */
+button {
+padding: 10px;
+background-color: #0774f0;
+color: rgb(170, 210, 249);
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+background-color: #4cae4c;
+}
+
+
+
+
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(85, 122, 197, 0.6); /* Black with opacity */
+    
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* 90% of the window width */
+    max-width: 500px; /* Maximum width */
+    max-height: 80%; /* Maximum height to avoid overflow */
+    overflow-y: auto; /* Scroll within the modal */
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.save-profile-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.save-profile-btn:hover {
+    background-color: #45a049;
+}
+
+/* Adjust form field margin */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* For mobile responsiveness */
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        width: 95%; /* Make the modal almost full-width */
+    }
+}
+
+/* Toggle nav links for mobile */
+.nav-links {
+    display: none; /* Hide by default */
+    flex-direction: column; /* Stack the links vertically for mobile */
+}
+
+.nav-links.active {
+    display: flex; /* Show nav links when active */
+}
+
+.menu-toggle {
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+        
+        
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0c41f0;
+    padding: 15px;
+}
+
+.navbar .logo img {
+    height: 50px;
+}
+
+.menu-toggle {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none; /* Hide the toggle button on desktop */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Visible by default on desktop */
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+/* Hide nav links on mobile by default */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show on toggle */
+    }
+
+    .menu-toggle {
+        display: block; /* Show toggle on mobile */
+    }
+}
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

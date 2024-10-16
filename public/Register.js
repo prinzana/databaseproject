@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const db = require('../config/dbconfig');
+const db = require('../config/maindatabase');
 
 const registerUser = async (req, res) => {
     const { fullname, email, password, community, clan, familyname } = req.body;

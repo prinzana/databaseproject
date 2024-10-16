@@ -1,12 +1,15 @@
-const express = require('express');
-const router = express.Router();
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const path = require('path');
-const db = require('../config/database'); // Adjust path if needed
+const db = require('../config/maindatabase'); // Adjust path if needed
+const express = require('express');
+const userController = require('../controllers/userController'); // Import the userController
+const router = express.Router();
+const jwt = require('jsonwebtoken'); // Make sure to import this at the top of your file
 
-// Utility functions for database operations (assuming these are defined)////////////////////////////////////////////////////////////////////
+
+// Utility functions for database operations
 const dbGet = (query, params) => {
     return new Promise((resolve, reject) => {
         db.get(query, params, (err, row) => {
@@ -28,10 +31,10 @@ const dbRun = (query, params) => {
 // User Registration Route
 router.post('/register', async (req, res) => {
     // Destructure request body
-    const { fullname, email, password, community, clan, familyname } = req.body;
+    const { fullname, email, password, community, clan, familyname, address, maritalstatus, numberofchildren, stateofresidence, lgaofresidence, dateofbirth, isdobpublic, profile_picture } = req.body;
 
     // Validate required fields
-    if (!fullname || !email || !password || !community || !clan || !familyname) {
+    if (!fullname || !email || !password || !community || !clan || !familyname || !address || !stateofresidence || !lgaofresidence) {
         return res.status(400).json({ error: 'Please fill in all required fields.' });
     }
 
@@ -41,8 +44,11 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         // Insert new user into the database
-        await dbRun(`INSERT INTO users (fullname, email, password, community, clan, familyname) VALUES (?, ?, ?, ?, ?, ?)`, 
-            [fullname, email, hashedPassword, community, clan, familyname]);
+        await dbRun(
+            `INSERT INTO mainusers (fullname, email, password, community, clan, familyname, address, maritalstatus, numberofchildren, stateofresidence, lgaofresidence, dateofbirth, isdobpublic, profile_picture) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [fullname, email, hashedPassword, community, clan, familyname, address, maritalstatus, numberofchildren, stateofresidence, lgaofresidence, dateofbirth, isdobpublic, profile_picture]
+        );
 
         // Send success response
         res.status(200).json({ message: 'User registered successfully!' });
@@ -57,8 +63,22 @@ router.post('/register', async (req, res) => {
 });
 
 
+////////////////////////////////////////////////// Profile Update Route/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Profile Update Route/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// userRoutes.js
+
+
+// Use the user controller for profile update
+router.use(userController);
+
+// Other user routes can go here...
+
+module.exports = router; // Export the router
+
+
+
+//////////////////////////////////////////////////////END OF UPDATE PROFILEROUTE///////////////////////////////////////////////////////////////
+
 
 
 // Forgot Password Route///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -165,8 +185,7 @@ router.post('/reset-password/:token', async (req, res) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-// User Login Route///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// User Login Route
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
@@ -176,6 +195,7 @@ router.post('/login', async (req, res) => {
 
     try {
         const user = await dbGet('SELECT * FROM users WHERE email = ?', [email]);
+        console.log('User found:', user);
         if (!user) {
             return res.status(400).json({ error: 'Invalid email or password.' });
         }
@@ -186,14 +206,72 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ error: 'Invalid email or password.' });
         }
 
-        res.status(200).json({ message: 'Login successful!', user });
+        // Debugging line to check if JWT secret is defined
+        console.log('JWT Secret:', process.env.SECRET_KEY);
+        
+
+        // Generate JWT token
+        const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
+        console.log('Generated Token:', token); // Log the generated token
+
+        res.status(200).json({ message: 'Login successful!', token, user });
     } catch (error) {
         console.error('Login error:', error);
         res.status(500).json({ error: 'An error occurred during login.' });
     }
 });
 
+
+
+
+/////////////////////fetch route/////////////////////////////////////////////////////////////////////////////////////////
+// Fetch User Profile Route
+
+/** */
+router.get('/users/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const user = await dbGet('SELECT fullname, email, community, clan, familyname FROM users WHERE id = ?', [userId]);
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found.' });
+        }
+
+        res.status(200).json(user);
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        res.status(500).json({ error: 'Internal server error.' });
+    }
+});
+
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

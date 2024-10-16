@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amon Data Centre</title>
+    <link rel="stylesheet" href="userprofile.css"> <!-- Link your CSS file here -->
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"><img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>
+        </div>
+        
+        <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="userhome.html">🏠 Dashboard</a></li>
+            <li><a href="#"> 👤 Profiles</a></li>
+            <li><a href="settings.html"> ⚙️ Settings</a></li>
+        </ul>
+
+       
+        <body>
+            <h1>User Profile</h1>
+            <div id="profile-container">
+                <div class="profile-info">
+                    <p><strong>Full Name:</strong> <span id="profile-name"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Name of Community:</strong> <span id="profile-community"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Name of Clan:</strong> <span id="profile-clan"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Family Name:</strong> <span id="profile-family-name"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>State of Residence:</strong> <span id="profile-state"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Address:</strong> <span id="profile-address"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Occupation:</strong> <span id="profile-occupation"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Sex:</strong> <span id="profile-sex"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Marital Status:</strong> <span id="profile-marital-status"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Number of Children:</strong> <span id="profile-children"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                </div>
+                <div class="profile-info">
+                    <p><strong>Date of Birth:</strong> <span id="profile-dob"></span></p>
+                </div>
+            </div>
+            
+            <script>
+                async function fetchUserProfile() {
+    const token = localStorage.getItem('token'); // Retrieve token from local storage
+
+    try {
+        const response = await fetch('http://localhost:4000/api/profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`, // Add the authorization token
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch profile data');
+        }
+
+        const profile = await response.json();
+
+        // Populate profile data in the HTML
+        document.getElementById('profile-name').innerText = profile.fullname || 'N/A'; // Full Name
+        document.getElementById('profile-community').innerText = profile.community || 'N/A'; // Community
+        document.getElementById('profile-clan').innerText = profile.clan || 'N/A'; // Clan
+        document.getElementById('profile-family-name').innerText = profile.familyname || 'N/A'; // Family Name
+        document.getElementById('profile-state').innerText = profile.state_of_residence || 'N/A'; // State of Residence
+        document.getElementById('profile-address').innerText = profile.address || 'N/A'; // Address
+        document.getElementById('profile-occupation').innerText = profile.occupation || 'N/A'; // Occupation
+        document.getElementById('profile-sex').innerText = profile.sex || 'N/A'; // Sex
+        document.getElementById('profile-marital-status').innerText = profile.marital_status || 'N/A'; // Marital Status
+        document.getElementById('profile-children').innerText = profile.number_of_children || 'N/A'; // Number of Children
+        document.getElementById('profile-email').innerText = profile.email || 'N/A'; // Email
+        document.getElementById('profile-dob').innerText = profile.date_of_birth || 'N/A'; // Date of Birth
+
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        alert('Failed to fetch profile data. Please try again.');
+    }
+}
+
+// Call the function to fetch the user profile when the page loads
+document.addEventListener('DOMContentLoaded', fetchUserProfile);
+
+            </script>
+            
+        </body>
+        </html>
+        
+  
+    
+    <style>/* Basic Reset */
+  /* Basic Reset */
+
+
+/* Profile Container */
+#profile-container {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px; /* Set maximum width */
+    width: 100%; /* Full width */
+}
+
+/* Profile Title */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4CAF50; /* Green color */
+}
+
+/* Profile Info Card */
+.profile-info {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Info Title */
+.profile-info p {
+    margin: 10px 0;
+}
+
+/* Strong Tag Style */
+.profile-info strong {
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    #profile-container {
+        width: 90%; /* Make the container smaller on mobile */
+    }
+}
+
+        </style>
+</body>
+</html>
+
+    
+ <!--
+<SCRipt>
+    // Get modal and buttons
+  const openModalBtn = document.getElementById('openModalBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const editModal = document.getElementById('editModal');
+  
+  // Open Modal
+  openModalBtn.addEventListener('click', () => {
+      editModal.style.display = 'flex';
+  });
+  
+  // Close Modal
+  closeModalBtn.addEventListener('click', () => {
+      editModal.style.display = 'none';
+  });
+  
+  // Close Modal by clicking outside
+  window.addEventListener('click', (event) => {
+      if (event.target === editModal) {
+          editModal.style.display = 'none';
+      }
+  });
+  
+  // Submit Form and Update Profile
+  const profileForm = document.getElementById('profile-form');
+  profileForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Simulate profile update success
+      document.getElementById('successMessage').style.display = 'block';
+      
+      // Close the modal after 2 seconds
+      setTimeout(() => {
+          editModal.style.display = 'none';
+          document.getElementById('successMessage').style.display = 'none';
+      }, 2000);
+  });
+  
+  // Preview Uploaded Profile Picture
+  const profilePicUpload = document.getElementById('profile-pic-upload');
+  const profilePic = document.getElementById('profile-pic');
+  
+  profilePicUpload.addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+              profilePic.src = e.target.result; // Update profile picture on the main page
+          }
+          reader.readAsDataURL(file);
+      }
+  });
+  
+  
+  
+  </SCRipt>
+    
+    
+    
+-->   
+    
+    
+
+
+
+
+
+
+
+
+  

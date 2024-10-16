@@ -25,15 +25,15 @@
         <ul class="nav-links">
              <!--  <li><a href="/public/home.html"> Home</a></li>-->
             <li><a href="profileHome.html">🏠 Dashboard</a></li>
-            <li><a href="profiles.html"> 👤 Profiles</a></li>
+            <li><a href="#"> 👤 Profiles</a></li>
             <li><a href="settings.html"> ⚙️ Settings</a></li>
             <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li>
         </ul>
     </nav>
 
     <body>
-
-      
+        <script src="usersprofileupdate.js"></script>
+        
         <body>
            
             <!-- Container for Profile -->
@@ -75,76 +75,85 @@
                 </section>
         
                 <!-- Edit Profile Modal -->
-                <div class="modal" id="editModal">
-                    <div class="modal-content">
-                        <span class="close-btn" id="closeModalBtn">&times;</span>
-                        <h2>Edit Profile</h2>
-                        <form id="profile-form">
-                            <!-- Profile Picture Upload Section -->
-                            <div class="form-group">
-                                <label for="profile-pic-upload">Upload Profile Picture:</label>
-                                <input type="file" id="profile-pic-upload" name="profile-pic-upload" accept="image/*">
-                            </div>
-        
-                            <!-- Profile Fields -->
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" value="John Doe">
-                            </div>
-                            <div class="form-group">
-                                <label for="sex">Sex:</label>
-                                <input type="text" id="sex" name="sex" value="Male">
-                            </div>
-                            <div class="form-group">
-                                <label for="occupation">Occupation:</label>
-                                <input type="text" id="occupation" name="occupation" value="Farmer">
-                            </div>
-                            <div class="form-group">
-                                <label for="marital-status">Marital Status:</label>
-                                <input type="text" id="marital-status" name="marital-status" value="Single">
-                            </div>
-                            <div class="form-group">
-                                <label for="children">Number of Children:</label>
-                                <input type="number" id="children" name="children" value="1">
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Address:</label>
-                                <input type="text" id="address" name="address" value="123 Main St">
-                            </div>
-                            <div class="form-group">
-                                <label for="state">State of Residence:</label>
-                                <input type="text" id="state" name="state" value="Cross River">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" value="john@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="dob">Date of Birth:</label>
-                                <input type="text" id="dob-input" name="dob" value="23/12/1900">
-                                <div class="toggle-container">
-                                    <input type="checkbox" id="toggle-dob-visibility" name="toggle-dob-visibility">
-                                    <label for="toggle-dob-visibility">Make Date of Birth Public</label>
-                                </div>
-                            </div>
-        
-                            <button type="submit" class="save-profile-btn">Save Changes</button>
-                        </form>
-                        <div id="successMessage" class="success-message" style="display:none;">
-                            Profile updated successfully!
-                        </div>
-                    </div>
+<div class="modal" id="editModal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="profile-form" enctype="multipart/form-data"> <!-- Add enctype for file uploads -->
+            <!-- Profile Picture Upload Section -->
+            <div class="form-group">
+                <label for="profile-pic-upload">Upload Profile Picture:</label>
+                <input type="file" id="profile-pic-upload" name="profile_picture" accept="image/*"> <!-- Update name for backend compatibility -->
+            </div>
+
+            <!-- Profile Fields -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <input type="text" id="sex" name="sex" value="Male" required>
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation" value="Farmer" required>
+            </div>
+            <div class="form-group">
+                <label for="marital-status">Marital Status:</label>
+                <input type="text" id="marital-status" name="marital_status" value="Single" required> <!-- Update name for backend compatibility -->
+            </div>
+            <div class="form-group">
+                <label for="children">Number of Children:</label>
+                <input type="number" id="children" name="number_of_children" value="1"> <!-- Update name for backend compatibility -->
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="123 Main St">
+            </div>
+            <div class="form-group">
+                <label for="state">State of Residence:</label>
+                <input type="text" id="state" name="state_of_residence" value="Cross River"> <!-- Update name for backend compatibility -->
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="john@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="text" id="dob-input" name="date_of_birth" value="23/12/1900" required> <!-- Update name for backend compatibility -->
+                <div class="toggle-container">
+                    <input type="checkbox" id="toggle-dob-visibility" name="is_dob_public">
+                    <label for="toggle-dob-visibility">Make Date of Birth Public</label>
                 </div>
             </div>
-        
-            <script src="script.js"></script>
+
+            <input type="hidden" name="id" value="USER_ID_HERE"> <!-- Include hidden field for user ID -->
+            <button type="submit" class="save-profile-btn">Save Changes</button>
+        </form>
+        <div id="successMessage" class="success-message" style="display:none;">
+            Profile updated successfully!
+        </div>
+    </div>
+</div>
+
+
+
+          <script src="script.js"></script>
+
         </body>
         </html>
         
-        <script>
-            
-        </script>
-        
+      <script>
+
+  
+
+</script>
+
+<script >
+
+
+</script>
     
 <!----------------------------------- #end of form fill ------------------------------------------------------------------------>
 
@@ -288,7 +297,6 @@ body {
 
 
 
-
 <!--start of ----------------------------------Modal and profile script------------------------------------------------------------------------------------------------------>
 
 <SCRipt>
@@ -406,8 +414,9 @@ profilePicUpload.addEventListener('change', function() {
 
 
 
+<!--
 
-
+-->
 
 
 

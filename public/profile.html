@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Dashboard</title>
+    <link rel="stylesheet" href="landingpage.css">
+    <link rel="stylesheet" href="signup2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<!-- Pop-up Notification Container -->
+<!--<div id="popup-message" class="popup-message"></div>--->
+
+<body>
+    <!-- Navigation Bar -->
+     <nav class="navbar">
+        <div class="logo">
+            <a href="/home.html"> <img src="/images/log.jpg" alt="Amon Data Centre Logo"></a>  
+            <span></span>
+        </div>
+         <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+         <ul class="nav-links">
+             <li><a href="./UserProfiles/profileHome.html">🏠 Dashboard</a></li>
+             <li><a href="#">👤 profile</a></li>
+             <li><a href="./UserProfiles/settings.html">⚙️ Settings</a></li>
+             <li><a href="login.html">Login</a></li>
+             <li><button id="close-menu" class="close-menu" style="display: none;">&times;</button></li> <!-- Close button -->
+         </ul>
+     </nav>
+<nav>
+<!-- Profile Header -->
+<div class="profile-header">
+    <h1>User Profile</h1>
+</div>
+
+<!-- Profile Container -->
+<div class="profile-card">
+    <div class="profile-picture" id="profile-picture-container">
+        <img id="profile-avatar" src="https://via.placeholder.com/160" alt="Profile Avatar" />
+    </div>
+  <!--  <div class="upload-section">
+        <input type="file" id="upload-avatar" accept="image/*" style="display: none;">
+        <label for="upload-avatar" class="upload-btn">Upload Picture</label>
+        <p id="upload-status" class="status-text"></p>
+    </div>-->
+    <button id="edit-profile" class="edit-btn">Edit Profile</button>
+
+    
+    <!-- Profile Info Section -->
+    <div class="profile-info-section">
+        <h2>Profile Information</h2>
+        <div class="profile-info-grid">
+            <div class="card">
+                <p><strong>Full Name:</strong> <span id="profile-name"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Name of Community:</strong> <span id="profile-community"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Name of Clan:</strong> <span id="profile-clan"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Family Name:</strong> <span id="profile-family-name"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>State of Residence:</strong> <span id="profile-state"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Address:</strong> <span id="profile-address"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>LGA of Residence:</strong> <span id="profile-lga"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Occupation:</strong> <span id="profile-occupation"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Sex:</strong> <span id="profile-sex"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Marital Status:</strong> <span id="profile-marital-status"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Number of Children:</strong> <span id="profile-children"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            </div>
+            <div class="card">
+                <p><strong>Date of Birth:</strong> <span id="profile-dob"></span></p>
+            </div>
+        </div>
+  
+    </div>
+  <!-- Edit Profile Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Edit Profile</h2>
+        <div class="modal-form">
+            <div class="form-field">
+                <label for="modal-name">Full Name:</label>
+                <input type="text" id="modal-name" placeholder="Enter your full name" />
+            </div>
+            <div class="upload-section">
+                <input type="file" id="modal-profile-picture" accept="image/*" style="display: none;">
+                <label for="modal-profile-picture" class="upload-btn">Upload Picture</label>
+                <p id="upload-status" class="status-text"></p>
+            </div>
+            <div class="form-field">
+                <label for="modal-community">Name of Community:</label>
+                <select id="modal-community">
+                    <option value="">Select Community</option>
+                    <option value="community1">Community 1</option>
+                    <option value="community2">Community 2</option>
+                    <option value="community3">Community 3</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="modal-clan">Name of Clan:</label>
+                <select id="modal-clan">
+                    <option value="">Select Clan</option>
+                    <option value="clan1">Clan 1</option>
+                    <option value="clan2">Clan 2</option>
+                    <option value="clan3">Clan 3</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="modal-family-name">Family Name:</label>
+                <input type="text" id="modal-family-name" placeholder="Enter your family name" />
+            </div>
+            <div class="form-field">
+                <label for="modal-state">State of Residence:</label>
+                <input type="text" id="modal-state" placeholder="Enter your state" />
+            </div>
+            <div class="form-field">
+                <label for="modal-address">Address:</label>
+                <input type="text" id="modal-address" placeholder="Enter your address" />
+            </div>
+            <div class="form-field">
+                <label for="modal-occupation">Occupation:</label>
+                <input type="text" id="modal-occupation" placeholder="Enter your occupation" />
+            </div>
+            <div class="form-field">
+                <label for="modal-sex">Sex:</label>
+                <select id="modal-sex">
+                    <option value="">Select Sex</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="modal-marital-status">Marital Status:</label>
+                <input type="text" id="modal-marital-status" placeholder="Enter your marital status" />
+            </div>
+            <div class="form-field">
+                <label for="modal-children">Number of Children:</label>
+                <input type="number" id="modal-children" placeholder="Enter number of children" />
+            </div>
+            <div class="form-field">
+                <label for="modal-email">Email:</label>
+                <input type="email" id="modal-email" placeholder="Enter your email" />
+            </div>
+            <div class="form-field">
+                <label for="modal-lga">LGA of Residence:</label>
+                <input type="text" id="modal-lga" placeholder="Enter your LGA of residence" />
+            </div>
+            <div class="form-field">
+                <label for="modal-dob">Date of Birth:</label>
+                <input type="date" id="modal-dob" />
+                <label>
+                    <input type="checkbox" id="dob-visibility" /> Show Date of Birth
+                </label>
+            </div>
+            <button class="save-btn">Save</button>
+        </div>
+    </div>
+</div>
+
+<script>
+  document.querySelector('.save-btn').addEventListener('click', async function() {
+    const user_id = 1; // Update with actual user_id logic
+    const fullname = document.getElementById('modal-name').value || null;
+    const community = document.getElementById('modal-community').value || null;
+    const clan = document.getElementById('modal-clan').value || null;
+    const familyname = document.getElementById('modal-family-name').value || null;
+    const occupation = document.getElementById('modal-occupation').value || null;
+    const marital_status = document.getElementById('modal-marital-status').value || null;
+    const number_of_children = document.getElementById('modal-children').value || null;
+    const address = document.getElementById('modal-address').value || null;
+    const state_of_residence = document.getElementById('modal-state').value || null;
+    const lga_of_residence = document.getElementById('modal-lga').value || null;
+    const date_of_birth = document.getElementById('modal-dob').value || null;
+    const is_dob_public = document.getElementById('dob-visibility').checked ? 1 : 0;
+
+    // Handle file upload
+    const profile_picture_input = document.getElementById('modal-profile-picture');
+    let profile_picture = null;
+    
+    if (profile_picture_input.files.length > 0) {
+        profile_picture = profile_picture_input.files[0]; // Get the file object
+    }
+
+    const formData = new FormData();
+    formData.append('user_id', user_id);
+    formData.append('fullname', fullname);
+    formData.append('community', community);
+    formData.append('clan', clan);
+    formData.append('familyname', familyname);
+    formData.append('occupation', occupation);
+    formData.append('marital_status', marital_status);
+    formData.append('number_of_children', number_of_children);
+    formData.append('address', address);
+    formData.append('state_of_residence', state_of_residence);
+    formData.append('lga_of_residence', lga_of_residence);
+    formData.append('date_of_birth', date_of_birth);
+    formData.append('is_dob_public', is_dob_public);
+    
+    if (profile_picture) {
+        formData.append('profile_picture', profile_picture); // Add the file to FormData
+    }
+
+    try {
+        const response = await fetch('http://localhost:4000/api/updateProfile', {
+            method: 'PUT',
+            body: formData // Send FormData
+        });
+
+        if (!response.ok) {
+            throw new Error('Error: ' + response.statusText);
+        }
+
+        const result = await response.json();
+        console.log('Profile updated successfully', result);
+        // Handle success (e.g., refresh profile details)
+    } catch (error) {
+        console.error('Error updating profile:', error);
+    }
+});
+</script>
+
+<script>
+  document.querySelector('.save-btn').addEventListener('click', async function() {
+    const user_id = 1; // Update with actual user_id logic
+    const fullname = document.getElementById('modal-name').value;
+    const community = document.getElementById('modal-community').value;
+    const clan = document.getElementById('modal-clan').value;
+    const familyname = document.getElementById('modal-family-name').value;
+    const occupation = document.getElementById('modal-occupation').value;
+    const marital_status = document.getElementById('modal-marital-status').value;
+    const number_of_children = document.getElementById('modal-children').value;
+    const address = document.getElementById('modal-address').value;
+    const state_of_residence = document.getElementById('modal-state').value;
+    const lga_of_residence = document.getElementById('modal-lga').value;
+    const date_of_birth = document.getElementById('modal-dob').value;
+    const is_dob_public = document.getElementById('dob-visibility').checked ? 1 : 0;
+    const profile_picture = document.getElementById('modal-profile-picture').value; // Ensure this input exists and captures the value
+
+    try {
+        const response = await fetch('http://localhost:4000/api/updateProfile', {
+            method: 'PUT', // Correctly using PUT method
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_id,
+                fullname,
+                community,
+                clan,
+                familyname,
+                occupation,
+                marital_status,
+                number_of_children,
+                address,
+                state_of_residence,
+                lga_of_residence,
+                date_of_birth,
+                is_dob_public,
+                profile_picture // Make sure this value is sent to the server
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Error: ' + response.statusText);
+        }
+
+        const result = await response.json();
+        console.log('Profile updated successfully', result);
+        // Handle success (e.g., refresh profile details)
+    } catch (error) {
+        console.error('Error updating profile:', error);
+    }
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <script>
+        // Fetch user profile
+async function fetchUserProfile() {
+    const token = localStorage.getItem('token'); // Retrieve token from local storage
+
+    try {
+        const response = await fetch('http://localhost:4000/api/profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`, // Add the authorization token
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch profile data');
+        }
+
+        const profile = await response.json();
+
+        // Populate profile data in the HTML
+        document.getElementById('profile-name').innerText = profile.fullname || 'N/A';
+        document.getElementById('profile-community').innerText = profile.community || 'N/A';
+        document.getElementById('profile-clan').innerText = profile.clan || 'N/A';
+        document.getElementById('profile-family-name').innerText = profile.familyname || 'N/A';
+        document.getElementById('profile-state').innerText = profile.state_of_residence || '/A';
+        document.getElementById('profile-lga').innerText = profile.lga_of_residence || 'N/A';
+        document.getElementById('profile-address').innerText = profile.address || 'N/A';
+        document.getElementById('profile-occupation').innerText = profile.occupation || '';
+        document.getElementById('profile-sex').innerText = profile.sex || 'N/A';
+        document.getElementById('profile-marital-status').innerText = profile.marital_status || 'N/A';
+        document.getElementById('profile-children').innerText = profile.number_of_children || 'N/A';
+        document.getElementById('profile-email').innerText = profile.email || 'N/A';
+        document.getElementById('profile-dob').innerText = profile.date_of_birth || '';
+
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        alert('Failed to fetch profile data. Please try again.');
+    }
+}
+
+// Call the function to fetch the user profile when the page loads
+document.addEventListener('DOMContentLoaded', fetchUserProfile);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>// Modal functionality
+const modal = document.getElementById("editModal");
+const editButton = document.getElementById("edit-profile");
+const closeButton = document.querySelector(".close-btn");
+
+editButton.onclick = function() {
+    modal.style.display = "block";
+    // Populate modal fields with current user data
+    document.getElementById('modal-name').value = document.getElementById('profile-name').innerText;
+    document.getElementById('modal-community').value = document.getElementById('profile-community').innerText;
+    document.getElementById('modal-clan').value = document.getElementById('profile-clan').innerText;
+    document.getElementById('modal-family-name').value = document.getElementById('profile-family-name').innerText;
+    document.getElementById('modal-state').value = document.getElementById('profile-state').innerText;
+    document.getElementById('modal-address').value = document.getElementById('profile-address').innerText;
+    document.getElementById('modal-occupation').value = document.getElementById('profile-occupation').innerText;
+    document.getElementById('modal-sex').value = document.getElementById('profile-sex').innerText;
+    document.getElementById('modal-marital-status').value = document.getElementById('profile-marital-status').innerText;
+    document.getElementById('modal-children').value = document.getElementById('profile-children').innerText;
+    document.getElementById('modal-email').value = document.getElementById('profile-email').innerText;
+    document.getElementById('modal-lga').value = document.getElementById('profile-lga').innerText;
+    document.getElementById('modal-dob').value = document.getElementById('profile-dob').innerText;
+
+    // Check if DOB is public and set the checkbox accordingly
+    document.getElementById('dob-visibility').checked = document.getElementById('profile-dob').innerText !== 'N/A';
+}
+
+closeButton.onclick = function() {
+    closeModal();
+}
+
+window.onclick = function(event) {
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// Handle file upload
+document.getElementById('upload-avatar').addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        document.getElementById('upload-status').innerText = file.name;
+    } else {
+        document.getElementById('upload-status').innerText = 'No file selected';
+    }
+});
+</script>
+
+    </body>
+    </html>
+    <script>
+
+
+
+
+
+/* // Send API request to update profile
+    fetch('http://localhost:4000/updateprofile/details', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Profile updated successfully!');
+        } else {
+            alert('Failed to update profile. Please try again.');
+        }
+    })
+    .catch(error => console.error('Error updating profile:', error));*/</script>
+
+</script>
+
+
+<style>/* For both success and error messages */
+.success-message, .error-message {
+    position: relative; /* Adjust relative to its container (like form card) */
+    top: 20px; /* Appears slightly above the form */
+    left: 50%; /* Center align */
+    transform: translateX(-50%);
+    width: 90%; /* Ensure it takes most of the form's width */
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center; /* Center the text inside the message box */
+    display: none; /* Initially hidden */
+    z-index: 1000; /* Appear above other elements */
+}
+
+.success-message {
+    background-color: #28a745; /* Green background for success */
+    color: white; /* White text for readability */
+    border: 1px solid #28a745;
+}
+
+.error-message {
+    background-color: #dc3545; /* Red background for error */
+    color: white; /* White text for readability */
+    border: 1px solid #dc3545;
+}
+
+    </style>
+
+<!--still profile styles-->
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-info-section {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.profile-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.upload-section {
+    margin: 15px 0;
+}
+
+.status-text {
+    color: green;
+}
+
+</style>
+
+
+<!-------------------------------------profile styles-------------------------------------------------------------------------------------------------->
+
+<style>
+ 
+
+
+    .profile-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .profile-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 100px;
+        text-align: center;
+        position: relative; /* Relative positioning for edit button */
+    }
+    
+    .profile-picture {
+        cursor: pointer; /* Pointer cursor for clickable profile picture */
+    }
+    
+    #profile-avatar {
+        border-radius: 50%;
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border: 2px solid #007BFF; /* Adds border to avatar */
+    
+    .upload-section {
+        text-align: center; /* Center the upload button */
+    }
+    
+    .status-text {
+        margin-top: 10px; /* Space above status text */
+        color: green; /* Color for success message */
+    }
+    }
+    
+    .edit-btn {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        position: absolute; /* Position edit button at top right */
+        top: 20px;
+        right: 20px;
+    }
+    
+    .edit-btn:hover {
+        background-color: #0056b3;
+    }
+    
+    .profile-info-section {
+        margin-top: 20px;
+    }
+    
+    .profile-info-section h2 {
+        margin-bottom: 15px;
+    }
+    
+    .profile-info-grid {
+        display: grid;
+        grid-template-columns: repeat(1, fr); /* Two columns layout */
+        gap: 15px; /* Gap between cards */
+    }
+    
+    .card {
+        background-color: #e7f1ff;
+        border: 1px solid #007BFF;
+        border-radius: 8px;
+        padding: 15px;
+        transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+    }
+    
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #007BFF;
+        width: 90%;
+        max-width: 600px; /* Set max-width for modal */
+        border-radius: 8px;
+    }
+    
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .modal-form {
+        display: grid;
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 15px; /* Gap between form fields */
+    }
+    
+    .form-field {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-field label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    .form-field input,
+    .form-field select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+    }
+    
+    .form-field input:focus,
+    .form-field select:focus {
+        border-color: #007BFF;
+    }
+    
+    .save-btn {
+        background-color: #0975f1;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .save-btn:hover {
+        background-color: #218838;
+    }
+    
+    
+    
+    
+    
+    
+    .profile-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 400px;
+        margin: 20px auto;
+        text-align: center;
+    }
+    
+    .profile-avatar {
+        margin-bottom: 15px;
+    }
+    
+    .circular-avatar {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover; /* Ensures the image covers the circular area */
+    }
+    
+    .upload-section {
+        margin-bottom: 15px;
+    }
+    
+    .upload-btn {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .upload-btn:hover {
+        background-color: #0056b3;
+    }
+    
+    .profile-info {
+        text-align: left;
+    }
+    
+    .profile-info p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    
+    
+    </style>
+
+
+
+
+
+
+<!---------------------------------------TOGGLE SECTION----------------------------------------------------------------------->
+    <!-- Script to Toggle Mobile Menu -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Function to open the mobile menu
+        function openMenu() {
+            navLinks.classList.add('show');
+            closeMenu.style.display = 'block'; // Show close button
+        }
+
+        // Function to close the mobile menu
+        function closeMenuFunc() {
+            navLinks.classList.remove('show');
+            closeMenu.style.display = 'none'; // Hide close button
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+
+        // Close the menu when clicking outside of it
+        document.addEventListener('click', function(event) {
+            if (!navLinks.contains(event.target) && event.target !== menuToggle) {
+                closeMenuFunc();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<script>
+    // Form submission API call for editing profile
+document.querySelector('.save-btn').addEventListener('click', async function (e) {
+    e.preventDefault(); // Prevent form from refreshing the page
+
+    // Gather form data
+    const fullName = document.getElementById('modal-name').value;
+    const community = document.getElementById('modal-community').value;
+    const clan = document.getElementById('modal-clan').value;
+    const familyName = document.getElementById('modal-family-name').value;
+    const state = document.getElementById('modal-state').value;
+    const address = document.getElementById('modal-address').value;
+    const occupation = document.getElementById('modal-occupation').value;
+    const sex = document.getElementById('modal-sex').value;
+    const maritalStatus = document.getElementById('modal-marital-status').value;
+    const children = document.getElementById('modal-children').value;
+    const email = document.getElementById('modal-email').value;
+    const lga = document.getElementById('modal-lga').value;
+    const dob = document.getElementById('modal-dob').value;
+    const dobVisibility = document.getElementById('dob-visibility').checked;
+
+    const data = {
+        fullname: fullName,
+        community: community,
+        clan: clan,
+        familyname: familyName,
+        state_of_residence: state,
+        address: address,
+        occupation: occupation,
+        sex: sex,
+        marital_status: maritalStatus,
+        number_of_children: children,
+        email: email,
+        lga_of_residence: lga,
+        date_of_birth: dob,
+        is_dob_public: dobVisibility
+    };
+
+    const token = localStorage.getItem('token'); // Retrieve token from local storage
+
+    try {
+        const response = await fetch('http://localhost:4000/api/profile/update', {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${token}`, // Add the authorization token
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to update profile data');
+        }
+
+        // If successful, reload the profile data
+        fetchUserProfile();
+        alert('Profile updated successfully!');
+        closeModal();
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        alert('Failed to update profile. Please try again.');
+    }
+});
+
+</script>-->   
+ 
+
+
